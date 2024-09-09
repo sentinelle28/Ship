@@ -22,3 +22,11 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player = body
 		_open_menu()
+
+func _sell_item(item:ObjectToSell)->void:
+	if player.in_stock(item.name):
+		player._sell_item(item,price_list[item.name])
+	
+func _buy_item(item:ObjectToSell)->void:
+	if player.is_there_space_left(item.capacity) and stock_list[item.name] > 0:
+		player._buy_item(item,price_list[item.name])

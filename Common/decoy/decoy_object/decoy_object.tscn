@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyjerwb3ccvk0"]
+
+[ext_resource type="Script" path="res://Common/decoy/decoy_object/decoy_object.gd" id="1_6oqxn"]
+
+[node name="decoy_object" type="Node2D"]
+script = ExtResource("1_6oqxn")
+
+[node name="sell_button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Sell"
+
+[node name="buy_button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "buy"
+
+[connection signal="pressed" from="sell_button" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="buy_button" to="." method="_on_buy_button_pressed"]

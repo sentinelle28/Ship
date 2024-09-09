@@ -65,3 +65,20 @@ func _add_crewmate(crewmate:Crew)->void:
 func _enter_an_haibor()->void:
 	is_in_a_hairbor = true
 	velocity = Vector2.ZERO
+
+func _sell_item(item:ObjectToSell,price:int)->void:
+	capacity -= item.capacity
+	money += price
+	thing_on_board.erase(item)
+	
+func _buy_item(item:ObjectToSell,price:int)->void:
+	capacity += item.capacity
+	money -= price
+	thing_on_board.append(item)
+
+func in_stock(item_name:String)->bool:
+	var stock_nb:int = 0
+	for elt in thing_on_board:
+		if elt.name == item_name:
+			stock_nb +=1
+	return stock_nb > 0
