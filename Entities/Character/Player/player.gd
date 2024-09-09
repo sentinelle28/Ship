@@ -77,8 +77,11 @@ func _buy_item(item:ObjectToSell,price:int)->void:
 	thing_on_board.append(item)
 
 func in_stock(item_name:String)->bool:
+	return check_stock(item_name) > 0
+
+func check_stock(name_of_the_object:String)->int:
 	var stock_nb:int = 0
 	for elt in thing_on_board:
-		if elt.name == item_name:
+		if elt.name == name_of_the_object:
 			stock_nb +=1
-	return stock_nb > 0
+	return stock_nb

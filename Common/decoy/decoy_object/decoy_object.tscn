@@ -6,14 +6,28 @@
 script = ExtResource("1_6oqxn")
 
 [node name="sell_button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 16.0
+offset_right = 51.0
+offset_bottom = 31.0
 text = "Sell"
 
 [node name="buy_button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -56.0
+offset_right = -19.0
+offset_bottom = 31.0
 text = "buy"
+
+[node name="hairbor_stock" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -24.0
+offset_right = -16.0
+offset_bottom = -1.0
+
+[node name="player_stock" type="Label" parent="."]
+offset_left = 16.0
+offset_top = -24.0
+offset_right = 56.0
+offset_bottom = -1.0
 
 [connection signal="pressed" from="sell_button" to="." method="_on_sell_button_pressed"]
 [connection signal="pressed" from="buy_button" to="." method="_on_buy_button_pressed"]

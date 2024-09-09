@@ -30,3 +30,6 @@ func _sell_item(item:ObjectToSell)->void:
 func _buy_item(item:ObjectToSell)->void:
 	if player.is_there_space_left(item.capacity) and stock_list[item.name] > 0:
 		player._buy_item(item,price_list[item.name])
+
+func check_stock(name_of_the_object:String)->int:
+	return stock_list[name_of_the_object]
