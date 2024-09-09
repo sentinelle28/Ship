@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0qp7vsdfc3s2"]
+
+[ext_resource type="Script" path="res://Scene/Main/main.gd" id="1_w1f76"]
+[ext_resource type="PackedScene" uid="uid://bedc63d32lhxo" path="res://Scene/Main/Title/animated_title_screen.tscn" id="2_kercy"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_w1f76")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 371.0
+offset_top = 164.0
+offset_right = 714.0
+offset_bottom = 440.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Animated_title_screen" parent="Control/VBoxContainer" instance=ExtResource("2_kercy")]
+position = Vector2(171, -45)
+
+[node name="play" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Settings" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Setting"
+
+[node name="Credits" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="tutorial" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "tutorial"
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Control/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

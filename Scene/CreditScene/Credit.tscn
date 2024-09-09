@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://u7tk3ovi2c83"]
+
+[node name="Credit" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 333.0
+offset_top = 145.0
+offset_right = 835.0
+offset_bottom = 543.0
+
+[node name="ItemList" type="ItemList" parent="Panel"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 30.0
+offset_right = 431.0
+offset_bottom = 354.0
+item_count = 1
+item_0/text = "Text:empitiy"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce6vsbcffvm4c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_44s8v"]
+font_size = 20
+font_color = Color(1, 0, 1, 1)
+
+[node name="LabelPrefab" type="Label"]
+label_settings = SubResource("LabelSettings_44s8v")
