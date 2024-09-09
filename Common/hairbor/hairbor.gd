@@ -10,7 +10,7 @@ func _ready() -> void:
 	HairborLayer.go_button.connect("pressed",_close_menu)
 	
 func _open_menu()->void:
-	HairborLayer.show()
+	HairborLayer._show_menu(self,player)
 	player._enter_an_haibor()
 	
 func _close_menu()->void:
