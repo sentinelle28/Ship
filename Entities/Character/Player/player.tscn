@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr5nrd8bkaa8f"]
+
+[ext_resource type="Texture2D" uid="uid://bj0mtimc62lwo" path="res://asset/MiniWorldSprites/MiniWorldSprites/Miscellaneous/TransportShip.png" id="1_c2v8m"]
+[ext_resource type="Script" path="res://Entities/Character/Player/player.gd" id="1_v4i7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykr77"]
+size = Vector2(31, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npu0c"]
+atlas = ExtResource("1_c2v8m")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35s3c"]
+atlas = ExtResource("1_c2v8m")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts560"]
+atlas = ExtResource("1_c2v8m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3hta"]
+atlas = ExtResource("1_c2v8m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k45xr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npu0c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35s3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts560")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3hta")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_v4i7r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_ykr77")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k45xr")
+animation = &"move"
+autoplay = "idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
