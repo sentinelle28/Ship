@@ -1,0 +1,227 @@
+[gd_scene load_steps=28 format=3 uid="uid://gu1v4djn2wce"]
+
+[ext_resource type="Texture2D" uid="uid://by0a68wp1rpu2" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanBarracks.png" id="1_5fgcv"]
+[ext_resource type="Texture2D" uid="uid://bph86rwp7losb" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanChapels.png" id="2_olddt"]
+[ext_resource type="Texture2D" uid="uid://cdib6dnrlrb4w" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanTower.png" id="3_q64s4"]
+[ext_resource type="Texture2D" uid="uid://hxdennratxdj" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanWell.png" id="4_t0nin"]
+[ext_resource type="Texture2D" uid="uid://bf2bs18k1siyc" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanWorkshops.png" id="5_q07qf"]
+[ext_resource type="Texture2D" uid="uid://bwprxmjjt73oa" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanDocks.png" id="6_j3n2b"]
+[ext_resource type="Texture2D" uid="uid://b3tsiu1myvxkl" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanHouses.png" id="7_cvxv4"]
+[ext_resource type="Texture2D" uid="uid://dggpowfkilugk" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanHuts.png" id="8_053g8"]
+[ext_resource type="Texture2D" uid="uid://byltudw408kvr" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanKeep.png" id="9_eusu7"]
+[ext_resource type="Texture2D" uid="uid://c53nwlrxonf81" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanMarket.png" id="10_mnc4g"]
+[ext_resource type="Texture2D" uid="uid://cf7xlg31iujp5" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanResources.png" id="11_15jpu"]
+[ext_resource type="Texture2D" uid="uid://de8vbrt3lka2d" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanShip.png" id="12_dnjbg"]
+[ext_resource type="Texture2D" uid="uid://tk6rqx6epr27" path="res://asset/MiniWorldSprites/MiniWorldSprites/Buildings/Cyan/CyanTaverns.png" id="13_qxkms"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ogjxf"]
+texture = ExtResource("1_5fgcv")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hoerj"]
+texture = ExtResource("2_olddt")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pu8oj"]
+texture = ExtResource("3_q64s4")
+0:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ni6w"]
+texture = ExtResource("4_t0nin")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6gtnp"]
+texture = ExtResource("5_q07qf")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nk724"]
+texture = ExtResource("6_j3n2b")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qkh3p"]
+texture = ExtResource("7_cvxv4")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0523p"]
+texture = ExtResource("8_053g8")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4vw1p"]
+texture = ExtResource("9_eusu7")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ffqm"]
+texture = ExtResource("10_mnc4g")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kghxm"]
+texture = ExtResource("11_15jpu")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hg8nm"]
+texture = ExtResource("12_dnjbg")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7v251"]
+texture = ExtResource("13_qxkms")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_23hct"]
+sources/0 = SubResource("TileSetAtlasSource_ogjxf")
+sources/1 = SubResource("TileSetAtlasSource_hoerj")
+sources/2 = SubResource("TileSetAtlasSource_nk724")
+sources/3 = SubResource("TileSetAtlasSource_qkh3p")
+sources/4 = SubResource("TileSetAtlasSource_0523p")
+sources/5 = SubResource("TileSetAtlasSource_4vw1p")
+sources/6 = SubResource("TileSetAtlasSource_7ffqm")
+sources/7 = SubResource("TileSetAtlasSource_kghxm")
+sources/8 = SubResource("TileSetAtlasSource_hg8nm")
+sources/9 = SubResource("TileSetAtlasSource_7v251")
+sources/10 = SubResource("TileSetAtlasSource_pu8oj")
+sources/11 = SubResource("TileSetAtlasSource_7ni6w")
+sources/12 = SubResource("TileSetAtlasSource_6gtnp")
+
+[node name="Hairbor" type="TileMapLayer"]
+tile_set = SubResource("TileSet_23hct")

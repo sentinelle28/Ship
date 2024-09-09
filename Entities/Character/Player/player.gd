@@ -1,29 +1,67 @@
 extends CharacterBody2D
 
-var speed:int = 10000
-var current_health:int = 3
-var max_health:int = 3
-var health_regeneration:int = 0
+class_name Player
+var is_in_a_hairbor:bool = false
+var speed:int = 100
+var healthcomponent:HealthComponent
 var money:int = 100
+var capacity:int = 0
+var max_capacity:int = 10
 
 var thing_on_board:Array[ObjectToSell] = []
 var crew:Array[Crew] = []
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	_move(delta)
+	if !is_in_a_hairbor:
+		_move(delta)
 
 func _move(delta:float)->void:
 	var direction:Vector2 = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	_change_direction(direction)
 	if direction != Vector2.ZERO:
-		velocity = direction*speed*delta
+		velocity = direction*speed
 	else:
 		velocity.x = lerp(velocity.x,0.0,delta)
 		velocity.y = lerp(velocity.y,0.0,delta)
 	move_and_slide()
-		
-
+	
 func _change_direction(direction:Vector2)->void:
 	if direction.x != 0:
 		$AnimatedSprite2D.flip_h = direction.x > 0
+
+func is_there_space_left(cost:int)->bool:
+	return cost + capacity <= max_capacity
+	
+func _remove_crewmate(crewmate:Crew)->void:
+	if crewmate is SailCrew:
+		var temp_dict:Dictionary = crewmate._return_pros()
+		for modif in temp_dict.keys():
+			if temp_dict[modif] != 0:
+				if modif == "bonus_to_speed":
+					speed -= temp_dict[modif]
+				elif modif == "bonus_to_regeneration":
+					healthcomponent.health_regeneration -= temp_dict[modif]
+				elif modif == "bonus_to_max_health":
+					healthcomponent._modify_max_health(temp_dict[modif])
+	crew.erase(crewmate)
+	capacity -= crewmate.capacity
+
+func _add_crewmate(crewmate:Crew)->void:
+	if is_there_space_left(crewmate.capacity):
+		if crewmate is SailCrew:
+			var temp_dict:Dictionary = crewmate._return_pros()
+			for modif in temp_dict.keys():
+				if temp_dict[modif] != 0:
+					if modif == "bonus_to_speed":
+						speed += temp_dict[modif]
+					elif modif == "bonus_to_regeneration":
+						healthcomponent.health_regeneration += temp_dict[modif]
+					elif modif == "bonus_to_max_health":
+						healthcomponent._modify_max_health(temp_dict[modif])
+		crew.append(crewmate)
+		capacity += crewmate.capacity
+
+func _enter_an_haibor()->void:
+	is_in_a_hairbor = true
+	velocity = Vector2.ZERO

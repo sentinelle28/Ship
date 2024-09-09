@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm8pr08p4qe5n"]
+
+[ext_resource type="Script" path="res://Autolaud/hairbor_layer/hairbor_layer.gd" id="1_sbb3s"]
+
+[node name="HairborLayer" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_sbb3s")
+
+[node name="go_button" type="Button" parent="."]
+offset_left = 936.0
+offset_top = 536.0
+offset_right = 1152.0
+offset_bottom = 640.0
+text = "go"
