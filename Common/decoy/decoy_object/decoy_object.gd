@@ -2,21 +2,26 @@ extends Node2D
 
 class_name DecoyObject
 var object:ObjectToSell
+var path:String 
+var current_haibor:Hairbor
+var player:Player
 
-func _assign_object(new_object:ObjectToSell)->void:
-	object = new_object
+func _assign_object(new_object:String)->void:
+	object = ItemPossible.item[new_object]
+	path = new_object
 
 func _on_sell_button_pressed() -> void:
-	HairborLayer._sell_item(object)
+	HairborLayer._sell_item(path)
+	
+	_update_tag(current_haibor,player)
 
 func _on_buy_button_pressed() -> void:
-	HairborLayer._buy_item(object)
+	HairborLayer._buy_item(path)
+	
+	_update_tag(current_haibor,player)
 
-func _update_tag(hairbor:Hairbor,player:Player)->void:
-	$hairbor_stock.text = str(hairbor.check_stock(object.name))
-	$player_stock.text = str(player.check_stock(object.name))
-
-func _update_texture(texture:Texture2D)->void:
-	var new_child:Sprite2D = Sprite2D.new()
-	new_child.texture = texture
-	add_child(new_child)
+func _update_tag(hairbor:Hairbor,players:Player)->void:
+	$hairbor_stock.text = str(hairbor.check_stock(path))
+	$player_stock.text = str(players.check_stock(path))
+	current_haibor = hairbor
+	player = players

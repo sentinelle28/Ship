@@ -8,7 +8,7 @@ var money:int = 100
 var capacity:int = 0
 var max_capacity:int = 10
 
-var thing_on_board:Array[ObjectToSell] = []
+var thing_on_board:Array[String] = ["res://possible_object/banana.tscn"]
 var crew:Array[Crew] = []
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -66,13 +66,13 @@ func _enter_an_haibor()->void:
 	is_in_a_hairbor = true
 	velocity = Vector2.ZERO
 
-func _sell_item(item:ObjectToSell,price:int)->void:
-	capacity -= item.capacity
+func _sell_item(item:String,price:int)->void:
+	capacity -= ItemPossible.item[item].capacity
 	money += price
 	thing_on_board.erase(item)
 	
-func _buy_item(item:ObjectToSell,price:int)->void:
-	capacity += item.capacity
+func _buy_item(item:String,price:int)->void:
+	capacity += ItemPossible.item[item].capacity
 	money -= price
 	thing_on_board.append(item)
 
@@ -82,6 +82,6 @@ func in_stock(item_name:String)->bool:
 func check_stock(name_of_the_object:String)->int:
 	var stock_nb:int = 0
 	for elt in thing_on_board:
-		if elt.name == name_of_the_object:
+		if elt == name_of_the_object:
 			stock_nb +=1
 	return stock_nb

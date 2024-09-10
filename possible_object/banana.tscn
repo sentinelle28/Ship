@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1lckq0wk5flx"]
+
+[ext_resource type="Script" path="res://Common/object/object_to_sell.gd" id="1_08oun"]
+[ext_resource type="Texture2D" uid="uid://ck585mchrx0t" path="res://icon.svg" id="2_vs6iv"]
+
+[node name="Banana" type="Node"]
+script = ExtResource("1_08oun")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vs6iv")
