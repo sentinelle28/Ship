@@ -4,6 +4,8 @@ class_name Player
 
 @export var hairbor_array:Array[Hairbor] = []
 
+var show_tool:bool = false
+
 var is_in_a_hairbor:bool = false
 var speed:int = 100
 var healthcomponent:HealthComponent
@@ -100,6 +102,12 @@ func check_crew(name_of_the_object:String)->int:
 	return stock_nb
 
 func _show_hairbor()->void:
-	for hairbor:Hairbor in hairbor_array:
-		var vector:Vector2 = global_position.direction_to(hairbor.global_position)
-		draw_line(global_position,vector*100,Color.BLUE)
+	show_tool = true
+	queue_redraw()
+	show_tool = false
+	
+func _draw() -> void:
+	if show_tool:
+		for hairbor:Hairbor in hairbor_array:
+			var vector:Vector2 = global_position.direction_to(hairbor.global_position)
+			draw_line(global_position,vector*100,Color.BLUE)
