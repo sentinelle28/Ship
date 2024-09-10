@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 class_name Player
+
+@export var hairbor_array:Array[Hairbor] = []
+
 var is_in_a_hairbor:bool = false
 var speed:int = 100
 var healthcomponent:HealthComponent
@@ -8,8 +11,8 @@ var money:int = 100
 var capacity:int = 0
 var max_capacity:int = 10
 
-var thing_on_board:Array[String] = ["res://possible_object/banana.tscn"]
-var crew:Array[Crew] = []
+var thing_on_board:Array[String] = []
+var crew:Array[String] = []
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -33,7 +36,8 @@ func _change_direction(direction:Vector2)->void:
 func is_there_space_left(cost:int)->bool:
 	return cost + capacity <= max_capacity
 	
-func _remove_crewmate(crewmate:Crew)->void:
+func _remove_crewmate(item:String)->void:
+	var crewmate:Crew = CrewPossible.crew[item]
 	if crewmate is SailCrew:
 		var temp_dict:Dictionary = crewmate._return_pros()
 		for modif in temp_dict.keys():
@@ -44,10 +48,12 @@ func _remove_crewmate(crewmate:Crew)->void:
 					healthcomponent.health_regeneration -= temp_dict[modif]
 				elif modif == "bonus_to_max_health":
 					healthcomponent._modify_max_health(temp_dict[modif])
-	crew.erase(crewmate)
 	capacity -= crewmate.capacity
+	crew.erase(item)
+	
 
-func _add_crewmate(crewmate:Crew)->void:
+func _add_crewmate(item:String)->void:
+	var crewmate:Crew = CrewPossible.crew[item]
 	if is_there_space_left(crewmate.capacity):
 		if crewmate is SailCrew:
 			var temp_dict:Dictionary = crewmate._return_pros()
@@ -59,7 +65,7 @@ func _add_crewmate(crewmate:Crew)->void:
 						healthcomponent.health_regeneration += temp_dict[modif]
 					elif modif == "bonus_to_max_health":
 						healthcomponent._modify_max_health(temp_dict[modif])
-		crew.append(crewmate)
+		crew.append(item)
 		capacity += crewmate.capacity
 
 func _enter_an_haibor()->void:
@@ -85,3 +91,15 @@ func check_stock(name_of_the_object:String)->int:
 		if elt == name_of_the_object:
 			stock_nb +=1
 	return stock_nb
+
+func check_crew(name_of_the_object:String)->int:
+	var stock_nb:int = 0
+	for elt in crew:
+		if elt == name_of_the_object:
+			stock_nb +=1
+	return stock_nb
+
+func _show_hairbor()->void:
+	for hairbor:Hairbor in hairbor_array:
+		var vector:Vector2 = global_position.direction_to(hairbor.global_position)
+		draw_line(global_position,vector*100,Color.BLUE)

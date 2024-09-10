@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu6orwr8do1e7"]
+
+[ext_resource type="Script" path="res://Common/crew/SailCrew.gd" id="1_1aohc"]
+[ext_resource type="Texture2D" uid="uid://ck585mchrx0t" path="res://icon.svg" id="2_i842o"]
+
+[node name="Sailer" type="Node"]
+script = ExtResource("1_1aohc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i842o")

@@ -3,7 +3,7 @@ extends Area2D
 class_name Hairbor
 var price_list:Dictionary = {}
 var stock_list:Dictionary = {}
-var hirable_crew:Array[Crew] = []
+var hirable_crew:Dictionary = {}
 var player:Player
  
 func _ready() -> void:
@@ -12,6 +12,10 @@ func _ready() -> void:
 		#object dans le stock list
 		stock_list[object] = 1
 		price_list[object] = 10
+	
+	for object:String in CrewPossible.crew.keys():
+		#object dans le stock list
+		hirable_crew[object] = 1
 	
 	
 func _open_menu()->void:
@@ -39,3 +43,15 @@ func _buy_item(item:String)->void:
 
 func check_stock(name_of_the_object:String)->int:
 	return stock_list[name_of_the_object]
+
+func check_crew(name_of_the_object:String)->int:
+	return hirable_crew[name_of_the_object]
+
+func _hire_crew(item:String)->void:
+	if player.is_there_space_left(CrewPossible.crew[item].capacity) and hirable_crew[item] > 0:
+		player._add_crewmate(item)
+		hirable_crew[item] -= 1
+
+func _eject_crew(item:String)->void:
+	player._remove_crewmate(item)
+	hirable_crew[item] += 1

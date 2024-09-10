@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://e2t7cdfbsfnx"]
+
+[ext_resource type="Script" path="res://Common/day/dayclass.gd" id="1_k3v5w"]
+
+[node name="Day" type="Node"]
+script = ExtResource("1_k3v5w")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true

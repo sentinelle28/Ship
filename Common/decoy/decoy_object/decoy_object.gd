@@ -9,6 +9,7 @@ var player:Player
 func _assign_object(new_object:String)->void:
 	object = ItemPossible.item[new_object]
 	path = new_object
+	_update_texure()
 
 func _on_sell_button_pressed() -> void:
 	HairborLayer._sell_item(path)
@@ -25,3 +26,8 @@ func _update_tag(hairbor:Hairbor,players:Player)->void:
 	$player_stock.text = str(players.check_stock(path))
 	current_haibor = hairbor
 	player = players
+
+func _update_texure()->void:
+	var child:Sprite2D = Sprite2D.new()
+	child.texture = object.get_node("Sprite2D").texture
+	add_child(child)

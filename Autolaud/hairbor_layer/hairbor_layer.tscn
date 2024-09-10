@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm8pr08p4qe5n"]
+[gd_scene load_steps=10 format=3 uid="uid://bm8pr08p4qe5n"]
 
 [ext_resource type="Script" path="res://Autolaud/hairbor_layer/hairbor_layer.gd" id="1_sbb3s"]
 [ext_resource type="PackedScene" uid="uid://cyjerwb3ccvk0" path="res://Common/decoy/decoy_object/decoy_object.tscn" id="2_d6uyc"]
 [ext_resource type="Texture2D" uid="uid://f1xfq0icth8r" path="res://asset/MiniWorldSprites/MiniWorldSprites/User Interface/Icons-Essentials.png" id="2_s2ggb"]
+[ext_resource type="PackedScene" uid="uid://wffl2d5ac0gn" path="res://Common/decoy/decoy_crew/decoycrew.tscn" id="3_45uxu"]
 [ext_resource type="Texture2D" uid="uid://4rcpjx04g4c8" path="res://asset/MiniWorldSprites/MiniWorldSprites/User Interface/UiIcons.png" id="3_dshqi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8o0u"]
@@ -84,6 +85,7 @@ font_color = Color(0, 0, 0, 1)
 visible = false
 script = ExtResource("1_sbb3s")
 decoy_item = ExtResource("2_d6uyc")
+decoy_crew = ExtResource("3_45uxu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -100
