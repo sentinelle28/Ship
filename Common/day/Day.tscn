@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://e2t7cdfbsfnx"]
+[gd_scene load_steps=3 format=3 uid="uid://e2t7cdfbsfnx"]
 
 [ext_resource type="Script" path="res://Common/day/dayclass.gd" id="1_k3v5w"]
+[ext_resource type="PackedScene" uid="uid://diyqr82fejwom" path="res://Common/thunder_prefab/thunder.tscn" id="2_p5jit"]
 
 [node name="Day" type="Node"]
 script = ExtResource("1_k3v5w")
+thunder_prefab = ExtResource("2_p5jit")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 60.0

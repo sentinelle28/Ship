@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 class_name Pirate
 @export var player:Player
-const SPEED:int = 300
+const SPEED:int = 1000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().current_scene.get_node("player")
@@ -11,8 +11,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	
 	_move(delta)
 	
 func _move(delta:float)->void:

@@ -7,17 +7,22 @@ class_name Player
 #day class
 @onready var light:PointLight2D = $PointLight2D
 
-var show_tool:bool = false
+@export var label_prefap:PackedScene 
+var hairbor_tool:Dictionary = {}
+
 
 var is_in_a_hairbor:bool = false
 var speed:int = 100
-var healthcomponent:HealthComponent
+@onready var healthcomponent:HealthComponent = $HealthComponent
 var money:int = 100
 var capacity:int = 0
 var max_capacity:int = 10
 
 var thing_on_board:Array[String] = []
 var crew:Array[String] = []
+
+func _ready() -> void:
+	_init_tools()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -105,15 +110,20 @@ func check_crew(name_of_the_object:String)->int:
 	return stock_nb
 
 func _show_hairbor()->void:
-	show_tool = true
-	queue_redraw()
-	show_tool = false
+	for hairbor:Hairbor in hairbor_array:
+		var direction:Vector2 = global_position.direction_to(hairbor.global_position)
+		#on the circle of lenght 10
+		hairbor_tool[hairbor.name].global_position = global_position + direction * 10
 	
-func _draw() -> void:
-	if show_tool:
-		for hairbor:Hairbor in hairbor_array:
-			var vector:Vector2 = global_position.direction_to(hairbor.global_position)
-			draw_line(global_position,vector*100,Color.BLUE)
+
 
 func _take_dmg(dmg:int)->void:
 	healthcomponent._take_dmg(dmg)
+
+func _init_tools()->void:
+	for haibor:Hairbor in hairbor_array:
+		var new_child:Label = label_prefap.instantiate()
+		new_child.text = haibor.name
+		new_child.hide()
+		add_child(new_child)
+		hairbor_tool[haibor.name]= new_child

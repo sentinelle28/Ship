@@ -82,7 +82,6 @@ sources/1 = SubResource("TileSetAtlasSource_i4tex")
 font_color = Color(0, 0, 0, 1)
 
 [node name="HairborLayer" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_sbb3s")
 decoy_item = ExtResource("2_d6uyc")
 decoy_crew = ExtResource("3_45uxu")
@@ -111,3 +110,12 @@ offset_top = 32.0
 offset_right = 1056.0
 offset_bottom = 55.0
 label_settings = SubResource("LabelSettings_tb4n2")
+
+[node name="rest_button" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 544.0
+offset_right = 192.0
+offset_bottom = 640.0
+text = "rest"
+
+[connection signal="pressed" from="rest_button" to="." method="_on_rest_button_pressed"]

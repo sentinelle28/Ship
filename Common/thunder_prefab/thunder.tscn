@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://diyqr82fejwom"]
+
+[ext_resource type="Texture2D" uid="uid://bvvfmclntg1q8" path="res://asset/thunder/lightning-strike-Sheet.png" id="1_8tqr0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxmt1"]
+atlas = ExtResource("1_8tqr0")
+region = Rect2(177, 0, 117, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17mei"]
+atlas = ExtResource("1_8tqr0")
+region = Rect2(294, 0, 117, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_044pu"]
+atlas = ExtResource("1_8tqr0")
+region = Rect2(411, 0, 117, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4t4ru"]
+atlas = ExtResource("1_8tqr0")
+region = Rect2(528, 0, 117, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvkuf"]
+atlas = ExtResource("1_8tqr0")
+region = Rect2(645, 0, 117, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d06gu"]
+atlas = ExtResource("1_8tqr0")
+region = Rect2(762, 0, 117, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ypn0"]
+atlas = ExtResource("1_8tqr0")
+region = Rect2(879, 0, 117, 102)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njb0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxmt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17mei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_044pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4t4ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvkuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d06gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ypn0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="thunder_prefab" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_njb0t")
+frame_progress = 0.859257

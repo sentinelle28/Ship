@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://mnldkctunwjo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u0yut"]
+
+[node name="hairbor_label" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_u0yut")

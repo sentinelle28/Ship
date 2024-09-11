@@ -108,3 +108,7 @@ func _hire_crew(item:String)->void:
 
 func _eject_crew(item:String)->void:
 	current_hairbor._eject_crew(item)
+
+
+func _on_rest_button_pressed() -> void:
+	get_tree().current_scene.get_node("Day")._rest()

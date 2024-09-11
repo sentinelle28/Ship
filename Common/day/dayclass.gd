@@ -4,7 +4,7 @@ class_name Day
 var day_number:int = 1
 var duration:int = 60
 @export var player:Player
-@export var hairbor_list:Array[Hairbor] = []
+@export var thunder_prefab:PackedScene
 
 func _ready() -> void:
 	$Timer.wait_time = duration
@@ -15,7 +15,12 @@ func _process(_delta: float) -> void:
 		_spawn_thunder()
 
 func _spawn_thunder()->void:
-	pass
+	var vector:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
+	var child:AnimatedSprite2D = thunder_prefab.instantiate()
+	child.global_position = player.global_position + vector*100*($Timer.time_left/duration)
+	add_child(child)
+	await get_tree().create_timer(0.4).timeout
+	remove_child(child)
 	
 func _darken()->void:
 	var tween:Tween = get_tree().create_tween()

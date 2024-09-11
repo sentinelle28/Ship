@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cr5nrd8bkaa8f"]
+[gd_scene load_steps=18 format=3 uid="uid://cr5nrd8bkaa8f"]
 
 [ext_resource type="Texture2D" uid="uid://bj0mtimc62lwo" path="res://asset/MiniWorldSprites/MiniWorldSprites/Miscellaneous/TransportShip.png" id="1_c2v8m"]
 [ext_resource type="Script" path="res://Entities/Character/Player/player.gd" id="1_v4i7r"]
+[ext_resource type="PackedScene" uid="uid://mnldkctunwjo" path="res://Common/label/hairbor_label.tscn" id="2_8ca6c"]
 [ext_resource type="Texture2D" uid="uid://cpyxus85gvrkg" path="res://asset/light/light.png" id="3_4jma4"]
+[ext_resource type="Script" path="res://Common/HealthComponent/HealthComponent.gd" id="5_7ijbo"]
+[ext_resource type="Texture2D" uid="uid://f1xfq0icth8r" path="res://asset/MiniWorldSprites/MiniWorldSprites/User Interface/Icons-Essentials.png" id="6_cfona"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykr77"]
 size = Vector2(31, 22)
@@ -48,8 +51,61 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_mn21l"]
+resource_name = "hurt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f1eti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecxai"]
+_data = {
+"RESET": SubResource("Animation_f1eti"),
+"hurt": SubResource("Animation_mn21l")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ject"]
+atlas = ExtResource("6_cfona")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jtp54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ject")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_v4i7r")
+label_prefap = ExtResource("2_8ca6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 2)
@@ -66,3 +122,33 @@ autoplay = "idle"
 position = Vector2(2.00003, -0.5)
 scale = Vector2(8.98438, 5.02344)
 texture = ExtResource("3_4jma4")
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("timer")]
+script = ExtResource("5_7ijbo")
+timer = NodePath("../Timer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ecxai")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -482.0
+offset_top = -301.0
+offset_right = -442.0
+offset_bottom = -278.0
+
+[node name="heart" type="AnimatedSprite2D" parent="Label"]
+position = Vector2(56, 10)
+sprite_frames = SubResource("SpriteFrames_jtp54")
+
+[node name="PointLight2D" type="PointLight2D" parent="Label"]
+position = Vector2(14, 9.1)
+scale = Vector2(2.34375, 1.00781)
+texture = ExtResource("3_4jma4")
+texture_scale = 0.2
+
+[connection signal="timeout" from="Timer" to="HealthComponent" method="_on_timer_timeout"]
