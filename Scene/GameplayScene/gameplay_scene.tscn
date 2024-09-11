@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://duwqics5lukxb"]
+[gd_scene load_steps=9 format=4 uid="uid://duwqics5lukxb"]
 
 [ext_resource type="PackedScene" uid="uid://c7ya1yd6nuap" path="res://Common/tilemap/map.tscn" id="1_l054n"]
 [ext_resource type="PackedScene" uid="uid://cr5nrd8bkaa8f" path="res://Entities/Character/Player/player.tscn" id="2_ypihl"]
 [ext_resource type="PackedScene" uid="uid://bh61caop5jwh7" path="res://Common/hairbor/hairbor.tscn" id="3_hiolq"]
 [ext_resource type="PackedScene" uid="uid://gu1v4djn2wce" path="res://Common/tilemap/hairbor.tscn" id="4_3nlqs"]
 [ext_resource type="PackedScene" uid="uid://ce6vsbcffvm4c" path="res://Common/label/LabelPrefab.tscn" id="5_krsj0"]
+[ext_resource type="PackedScene" uid="uid://e2t7cdfbsfnx" path="res://Common/day/Day.tscn" id="6_mgh21"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvcyu"]
 size = Vector2(42, 42)
@@ -37,3 +38,5 @@ offset_right = 74.0
 offset_bottom = -4.0
 text = "Nogruand"
 label_settings = SubResource("LabelSettings_2fe0j")
+
+[node name="Day" parent="." instance=ExtResource("6_mgh21")]

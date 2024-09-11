@@ -4,6 +4,9 @@ class_name Player
 
 @export var hairbor_array:Array[Hairbor] = []
 
+#day class
+@onready var light:PointLight2D = $PointLight2D
+
 var show_tool:bool = false
 
 var is_in_a_hairbor:bool = false
@@ -111,3 +114,6 @@ func _draw() -> void:
 		for hairbor:Hairbor in hairbor_array:
 			var vector:Vector2 = global_position.direction_to(hairbor.global_position)
 			draw_line(global_position,vector*100,Color.BLUE)
+
+func _take_dmg(dmg:int)->void:
+	healthcomponent._take_dmg(dmg)

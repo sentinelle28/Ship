@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh61caop5jwh7"]
+[gd_scene load_steps=3 format=3 uid="uid://bh61caop5jwh7"]
 
 [ext_resource type="Script" path="res://Common/hairbor/hairbor.gd" id="1_c4jeb"]
+[ext_resource type="Texture2D" uid="uid://cpyxus85gvrkg" path="res://asset/light/light.png" id="2_35jol"]
 
 [node name="hairbor" type="Area2D"]
 script = ExtResource("1_c4jeb")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("2_35jol")
+texture_scale = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

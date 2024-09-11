@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3eq6clusgvwl"]
+
+[ext_resource type="Texture2D" uid="uid://cujxwq0hkpt1q" path="res://asset/MiniWorldSprites/MiniWorldSprites/Miscellaneous/PirateShip.png" id="1_dy8c0"]
+[ext_resource type="Script" path="res://Entities/Character/pirates/pirates.gd" id="1_fmh50"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqhpv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyakn"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6ed5"]
+atlas = ExtResource("1_dy8c0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6xud"]
+atlas = ExtResource("1_dy8c0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq1c8"]
+atlas = ExtResource("1_dy8c0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rako7"]
+atlas = ExtResource("1_dy8c0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ie0b6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6ed5")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6xud")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mq1c8")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rako7")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Pirates" type="CharacterBody2D"]
+script = ExtResource("1_fmh50")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fqhpv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kyakn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ie0b6")
+animation = &"down"
+metadata/_edit_lock_ = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_change_direction"]
