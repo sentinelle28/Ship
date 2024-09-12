@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 class_name Pirate
 @export var player:Player
-const SPEED:int = 1000
+const SPEED:int = 10000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().current_scene.get_node("player")
@@ -14,9 +14,9 @@ func _process(delta: float) -> void:
 	_move(delta)
 	
 func _move(delta:float)->void:
-	var new_target:Vector2 =$NavigationAgent2D.get_next_path_position()
+	var new_target:Vector2 = $NavigationAgent2D.get_next_path_position()
 	var direction:Vector2 = global_position.direction_to(new_target)
-	velocity = direction *SPEED * delta
+	velocity = direction * SPEED * delta
 	move_and_slide()
 
 func _change_direction()->void:
@@ -27,8 +27,7 @@ func _change_direction()->void:
 		#wander
 		var new_direction:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
 		$NavigationAgent2D.target_position = new_direction * 100
-
-
+	$Timer.start(0.3)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:

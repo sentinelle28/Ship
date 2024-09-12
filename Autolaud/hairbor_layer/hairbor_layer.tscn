@@ -82,6 +82,7 @@ sources/1 = SubResource("TileSetAtlasSource_i4tex")
 font_color = Color(0, 0, 0, 1)
 
 [node name="HairborLayer" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_sbb3s")
 decoy_item = ExtResource("2_d6uyc")
 decoy_crew = ExtResource("3_45uxu")

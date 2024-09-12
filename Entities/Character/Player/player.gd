@@ -115,8 +115,6 @@ func _show_hairbor()->void:
 		#on the circle of lenght 10
 		hairbor_tool[hairbor.name].global_position = global_position + direction * 10
 	
-
-
 func _take_dmg(dmg:int)->void:
 	healthcomponent._take_dmg(dmg)
 
@@ -124,6 +122,6 @@ func _init_tools()->void:
 	for haibor:Hairbor in hairbor_array:
 		var new_child:Label = label_prefap.instantiate()
 		new_child.text = haibor.name
-		new_child.hide()
 		add_child(new_child)
+		new_child.hide()
 		hairbor_tool[haibor.name]= new_child

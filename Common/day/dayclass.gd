@@ -5,10 +5,11 @@ var day_number:int = 1
 var duration:int = 60
 @export var player:Player
 @export var thunder_prefab:PackedScene
+@export var hairbor_array:Array[Hairbor]
 
 func _ready() -> void:
 	$Timer.wait_time = duration
-
+"""
 func _process(_delta: float) -> void:
 	var percent_left = $Timer.time_left/duration
 	if percent_left < 0.2 and percent_left >= 0:
@@ -20,7 +21,7 @@ func _spawn_thunder()->void:
 	child.global_position = player.global_position + vector*100*($Timer.time_left/duration)
 	add_child(child)
 	await get_tree().create_timer(0.4).timeout
-	remove_child(child)
+	remove_child(child)"""
 	
 func _darken()->void:
 	var tween:Tween = get_tree().create_tween()
@@ -32,6 +33,8 @@ func _rest()->void:
 	_reset()
 	_change_duration()
 	day_number += 1
+	
+	
 
 func _reset()->void:
 	$CanvasModulate.color = Color.WHITE
@@ -42,3 +45,7 @@ func _change_duration()->void:
 	if duration < 30:
 		duration = 30
 	$Timer.start(duration)
+
+func _restock_hairbor()->void:
+	for hairbor:Hairbor in hairbor_array:
+		hairbor._rest()

@@ -55,3 +55,7 @@ func _hire_crew(item:String)->void:
 func _eject_crew(item:String)->void:
 	player._remove_crewmate(item)
 	hirable_crew[item] += 1
+
+func _rest()->void:
+	for elt:String in stock_list:
+		stock_list[elt] = randi_range(1,5)
