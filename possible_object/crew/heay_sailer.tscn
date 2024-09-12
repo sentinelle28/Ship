@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://coiseggucw0j5"]
+
+[ext_resource type="Script" path="res://Common/crew/SailCrew.gd" id="1_loild"]
+
+[node name="heavy_sailer" type="Node"]
+script = ExtResource("1_loild")
+bonus_to_max_health = 2
+hire_cost = 10
+capacity = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

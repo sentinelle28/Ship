@@ -5,6 +5,8 @@
 
 [node name="Sailer" type="Node"]
 script = ExtResource("1_1aohc")
+bonus_to_speed = 10
+hire_cost = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_i842o")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2sclclo5pjyq"]
+
+[ext_resource type="Script" path="res://Common/object/object_to_sell.gd" id="1_kc0ti"]
+[ext_resource type="Texture2D" uid="uid://ck585mchrx0t" path="res://icon.svg" id="2_djd8a"]
+
+[node name="apple" type="Node"]
+script = ExtResource("1_kc0ti")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_djd8a")

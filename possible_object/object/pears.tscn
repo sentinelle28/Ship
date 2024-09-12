@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ri5y0arhe73y"]
+
+[ext_resource type="Script" path="res://Common/object/object_to_sell.gd" id="1_ht7f8"]
+[ext_resource type="Texture2D" uid="uid://ck585mchrx0t" path="res://icon.svg" id="2_sxv0j"]
+
+[node name="Pears" type="Node"]
+script = ExtResource("1_ht7f8")
+capacity = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sxv0j")
